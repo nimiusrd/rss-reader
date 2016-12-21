@@ -3,7 +3,7 @@ import React from 'react';
 import {mount, render, shallow} from 'enzyme';
 import assert from 'power-assert';
 
-import {FeedItem} from '../../src/components/FeedItem.jsx';
+import {FeedItem} from '../../src/components/FeedItem';
 
 describe('<FeedItem />', () => {
 

@@ -21,7 +21,7 @@ const webpackConfig = {
         options: {
           presets: 'babel-preset-power-assert'
         },
-        test: /\.jsx$/
+        test: /\.js$/
       },
       {
         exclude: /node_modules/,
@@ -50,7 +50,7 @@ const webpackConfig = {
     ]
   },
   resolve: {
-    extensions: ['.js', '.jsx', '.spec.jsx']
+    extensions: ['.js', '.spec.js']
   }
 };
 
@@ -60,10 +60,10 @@ module.exports = config => {
     basePath  : path.resolve(__dirname),
     frameworks: ['mocha'],
     files     : [
-      'test/**/*.spec.jsx'
+      'test/**/*.spec.js'
     ],
     preprocessors: {
-      'test/**/*.jsx': ['webpack', 'sourcemap']
+      'test/**/*.js': ['webpack', 'sourcemap']
     },
     webpack      : webpackConfig,
     webpackMiddleware: {

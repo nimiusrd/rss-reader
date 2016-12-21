@@ -15,7 +15,7 @@ module.exports = {
       {
         exclude: /node_modules/,
         loader : 'babel-loader',
-        test   : /\.jsx$/
+        test   : /\.js$/
       },
       {
         exclude: /node_modules/,
@@ -39,6 +39,6 @@ module.exports = {
     })
   ],
   resolve: {
-    extensions: ['.js', '.jsx', '.css']
+    extensions: ['.js', '.css']
   }
 };
