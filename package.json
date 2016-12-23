@@ -9,11 +9,15 @@
     "prestart": "rimraf dist/assets/",
     "start": "webpack -w -d --config webpack.config.dev.js",
     "build": "webpack -p --config webpack.config.prod.js",
-    "test": "karma start"
+    "test": "karma start --single-run",
+    "test:watch": "karma start",
+    "postinstall": "flow-typed update"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",
+    "babel-eslint": "^7.1.1",
     "babel-loader": "^6.2.9",
+    "babel-plugin-transform-flow-strip-types": "^6.21.0",
     "babel-preset-es2015": "^6.18.0",
     "babel-preset-power-assert": "^1.0.0",
     "babel-preset-react": "^6.16.0",
@@ -23,8 +27,11 @@
     "cssnano": "^3.8.2",
     "enzyme": "^2.6.0",
     "eslint": "^3.11.1",
+    "eslint-plugin-flowtype": "^2.29.1",
     "eslint-plugin-react": "^6.8.0",
     "extract-text-webpack-plugin": "beta",
+    "flow-bin": "^0.37.4",
+    "flow-typed": "^2.0.0",
     "json-loader": "^0.5.4",
     "karma": "^1.3.0",
     "karma-chrome-launcher": "^2.0.0",
@@ -49,6 +56,7 @@
   },
   "dependencies": {
     "react": "^15.4.1",
-    "react-dom": "^15.4.1"
+    "react-dom": "^15.4.1",
+    "xml2js": "^0.4.17"
   }
 }

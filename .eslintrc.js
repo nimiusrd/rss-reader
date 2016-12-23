@@ -6,15 +6,17 @@ module.exports = {
   },
   'extends': [
     'eslint:recommended',
+    'plugin:flowtype/recommended',
     'plugin:react/all'
   ],
+  'parser'       : 'babel-eslint',
   'parserOptions': {
     'sourceType'  : 'module',
     'ecmaFeatures': {
       'jsx': true
     }
   },
-  'plugins': ['react'],
+  'plugins': ['react', 'flowtype'],
   'rules'  : {
     'accessor-pairs'       : 'error',
     'array-bracket-spacing': ['error', 'never'],
@@ -41,26 +43,65 @@ module.exports = {
     'default-case'             : ['error', {
       'commentPattern': '^no default$'
     }],
-    'dot-location'          : ['error', 'property'],
-    'dot-notation'          : 'error',
-    'eol-last'              : 'error',
-    'eqeqeq'                : 'error',
-    'func-call-spacing'     : 'error',
-    'func-name-matching'    : 'error',
-    'func-names'            : 'error',
-    'func-style'            : ['error', 'expression'],
-    'generator-star-spacing': ['error', 'after'],
-    'global-require'        : 'error',
-    'guard-for-in'          : 'error',
-    'handle-callback-err'   : 'error',
-    'id-blacklist'          : ['error', 'data', 'callback', 'name'],
-    'id-length'             : 'error',
-    'id-match'              : ['warn', '^([a-z]+([A-Z][a-z]+)*|[A-Z]+)$', {
-      'onlyDeclarations': true
+    'dot-location'                           : ['error', 'property'],
+    'dot-notation'                           : 'error',
+    'eol-last'                               : 'error',
+    'eqeqeq'                                 : 'error',
+    'flowtype/boolean-style'                 : [2, 'boolean'],
+    'flowtype/define-flow-type'              : 2,
+    'flowtype/delimiter-dangle'              : 2,
+    'flowtype/generic-spacing'               : [2, 'never'],
+    'flowtype/no-primitive-constructor-types': 2,
+    'flowtype/no-weak-types'                 : [2, {
+      'any'     : false,
+      'Object'  : true,
+      'Function': true
     }],
+    'flowtype/object-type-delimiter' : [2, 'comma'],
+    'flowtype/require-parameter-type': [2, {
+      'excludeArrowFunctions': false
+    }],
+    'flowtype/require-return-type': [2,
+      'always',
+      {
+        'annotateUndefined'    : 'always',
+        'excludeArrowFunctions': false
+      }
+    ],
+    'flowtype/require-valid-file-annotation': [2,
+      'always',
+      {
+        'annotationStyle': 'block'
+      }
+    ],
+    'flowtype/require-variable-type'       : [2, {
+      "excludeVariableMatch": '^[A-Z]'
+    }],
+    'flowtype/semi'                        : [2, 'always'],
+    'flowtype/space-after-type-colon'      : [2, 'always'],
+    'flowtype/space-before-generic-bracket': [2, 'never'],
+    'flowtype/space-before-type-colon'     : [2, 'never'],
+    'flowtype/type-id-match'               : [2, '^([A-Z][a-z0-9]+)+Type$'],
+    'flowtype/union-intersection-spacing'  : [2, 'always'],
+    'flowtype/use-flow-type'               : 2,
+    'flowtype/valid-syntax'                : 2,
+    'func-call-spacing'                    : 'error',
+    'func-name-matching'                   : 'error',
+    'func-names'                           : 'error',
+    'func-style'                           : ['error', 'expression'],
+    'generator-star-spacing'               : ['error', 'after'],
+    'global-require'                       : 'error',
+    'guard-for-in'                         : 'error',
+    'handle-callback-err'                  : 'error',
+    'id-blacklist'                         : ['error', 'data', 'callback', 'name'],
+    'id-length'                            : 'error',
+    'id-match'                             : ['error', '^[A-Za-z]+$'],
     'indent': ['error', 2, {
-      'SwitchCase'        : 1, 'VariableDeclarator': {
-        'var'  : 2, 'let'  : 2, 'const': 3
+      'SwitchCase'        : 1,
+      'VariableDeclarator': {
+        'var'  : 2,
+        'let'  : 2,
+        'const': 3
       }
     }],
     'init-declarations': ['error', 'never', {
@@ -78,7 +119,8 @@ module.exports = {
     'max-depth'             : ['warn', 4],
     'max-len'               : ['warn', 80],
     'max-lines'             : ['warn', {
-      'max'         : 300, 'skipComments': true
+      'max'         : 300,
+      'skipComments': true
     }],
     'max-nested-callbacks'   : ['error', 5],
     'max-params'             : ['error', 5],
