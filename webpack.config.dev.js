@@ -10,6 +10,10 @@ module.exports = {
   entry  : {
     app: './main'
   },
+  externals: {
+    'react'    : 'React',
+    'react-dom': 'ReactDOM'
+  },
   module: {
     rules: [
       {

@@ -6,7 +6,11 @@ process.env.NODE_ENV = 'production';
 module.exports = {
   context: path.resolve(__dirname, 'src'),
   entry  : {
-    app  : './main'
+    app: './main'
+  },
+  externals: {
+    'react'    : 'React',
+    'react-dom': 'ReactDOM'
   },
   module: {
     rules: [
@@ -27,7 +31,7 @@ module.exports = {
   },
   output: {
     filename: '[name].js',
-    path    : path.join(__dirname, 'dist', 'assets')
+    path    : path.join(__dirname, 'dist', 'assets/')
   },
   plugins: [
     new ExtractTextPlugin({

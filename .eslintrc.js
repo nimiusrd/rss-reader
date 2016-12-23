@@ -6,7 +6,6 @@ module.exports = {
   },
   'extends': [
     'eslint:recommended',
-    'plugin:flowtype/recommended',
     'plugin:react/all'
   ],
   'parser'       : 'babel-eslint',
@@ -270,6 +269,7 @@ module.exports = {
       'allowTemplateLiterals': true
     }],
     'radix'                       : 'error',
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     'react/jsx-indent'            : [2, 2],
     'react/jsx-indent-props'      : [2, 2],
     'react/jsx-max-props-per-line': [2, {
