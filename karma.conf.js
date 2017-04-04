@@ -71,7 +71,7 @@ module.exports = config => {
     },
     reporters: ['mocha'],
     logLevel : config.LOG_INFO,
-    browsers : ['Chromium', 'PhantomJS', 'Firefox'],
+    browsers : ['Chromium', 'PhantomJS', 'Firefox', 'Safari', 'Chrome'],
     singleRun: false
   });
 
