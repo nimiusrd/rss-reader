@@ -18,21 +18,21 @@ module.exports = {
     rules: [
       {
         exclude: /node_modules/,
-        loader : 'awesome-typescript-loader',
-        test   : /\.tsx?$/
+        test   : /\.tsx?$/,
+        use : 'awesome-typescript-loader'
       },
       {
         enforce: "pre",
         test: /\.js$/,
-        loader: "source-map-loader"
+        use: "source-map-loader"
       },
       {
         exclude: /node_modules/,
-        loader : ExtractTextPlugin.extract({
-          'fallback-loader': 'style-loader?sourceMap',
-          'loader'         : 'css-loader?modules&importLoaders=1&localIdentName=[local]___[hash:base64:5]!postcss-loader'
-        }),
-        test: /\.css$/
+        test: /\.css$/,
+        use : ExtractTextPlugin.extract({
+          fallback: 'style-loader?sourceMap',
+          use: 'css-loader?modules&importLoaders=1&localIdentName=[local]___[hash:base64:5]!postcss-loader'
+        })
       }
     ]
   },
@@ -48,6 +48,6 @@ module.exports = {
     })
   ],
   resolve: {
-    extensions: ['.js', '.css', '.ts', '.tsx']
+    extensions: ['.js', '.ts', '.tsx']
   }
 };

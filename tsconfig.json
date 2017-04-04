@@ -1,10 +1,10 @@
 {
     "compilerOptions": {
-        "outDir": "./app/assets",
+        "outDir": "./dist/assets",
         "sourceMap": true,
         "noImplicitAny": true,
         "module": "commonjs",
-        "target": "es2015",
+        "target": "es5",
         "jsx": "react"
     },
     "include": [
