@@ -1,7 +1,7 @@
-import React from 'react';
+import * as React from 'react';
 import {FeedItem} from './components/FeedItem';
 
-export default class App extends React.Component {
+export default class App extends React.Component<undefined, undefined> {
   constructor(props) {
     super(props);
     this.state = {

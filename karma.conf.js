@@ -1,10 +1,10 @@
 const path = require('path');
 
 const webpackConfig = {
-  context: path.resolve(__dirname, 'test'),
+  context: path.resolve(__dirname, 'src'),
   devtool: 'inline-source-map',
   entry  : {
-    spec: './main'
+    spec: './test'
   },
   externals: {
     'cheerio'                       : 'window',
@@ -43,10 +43,6 @@ const webpackConfig = {
             loader: 'postcss-loader'
           }
         ]
-      },
-      {
-        loader: 'json-loader',
-        test  : /\.json$/
       }
     ]
   },
@@ -61,10 +57,10 @@ module.exports = config => {
     basePath  : path.resolve(__dirname),
     frameworks: ['mocha'],
     files     : [
-      'test/**/*.spec.js'
+      'src/**/*.spec.*'
     ],
     preprocessors: {
-      'test/**/*.js': ['webpack', 'sourcemap']
+      'src/**/*.spec.*': ['webpack', 'sourcemap']
     },
     webpack      : webpackConfig,
     webpackMiddleware: {
