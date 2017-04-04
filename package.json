@@ -10,8 +10,7 @@
     "start": "webpack -w -d --config webpack.config.dev.js",
     "build": "webpack -p --config webpack.config.prod.js",
     "test": "karma start --single-run",
-    "test:watch": "karma start",
-    "postinstall": "flow-typed update"
+    "test:watch": "karma start"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",
@@ -31,7 +30,6 @@
     "eslint-plugin-react": "^6.8.0",
     "extract-text-webpack-plugin": "beta",
     "flow-bin": "^0.37.4",
-    "flow-typed": "^2.0.0",
     "json-loader": "^0.5.4",
     "karma": "^1.3.0",
     "karma-chrome-launcher": "^2.0.0",
