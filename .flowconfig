@@ -1,7 +1,0 @@
-[include]
-src/
-node_modules/
-[ignore]
-.*/node_modules\/.*
-[libs]
-flow-typed/

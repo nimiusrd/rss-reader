@@ -18,8 +18,13 @@ module.exports = {
     rules: [
       {
         exclude: /node_modules/,
-        loader : 'babel-loader',
-        test   : /\.js$/
+        loader : 'awesome-typescript-loader',
+        test   : /\.tsx?$/
+      },
+      {
+        enforce: "pre",
+        test: /\.js$/,
+        loader: "source-map-loader"
       },
       {
         exclude: /node_modules/,
@@ -43,6 +48,6 @@ module.exports = {
     })
   ],
   resolve: {
-    extensions: ['.js', '.css']
+    extensions: ['.js', '.css', '.ts', '.tsx']
   }
 };

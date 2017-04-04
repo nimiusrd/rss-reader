@@ -15,13 +15,14 @@ const webpackConfig = {
   module: {
     rules: [
       {
-        enforce: 'pre',
         exclude: /node_modules/,
-        loader : 'babel-loader',
-        options: {
-          presets: 'babel-preset-power-assert'
-        },
-        test: /\.js$/
+        loader : 'awesome-typescript-loader',
+        test   : /\.tsx?$/
+      },
+      {
+        enforce: 'post',
+        test: /\.spec\.*/,
+        loader: "webpack-espower-loader"
       },
       {
         exclude: /node_modules/,
@@ -50,7 +51,7 @@ const webpackConfig = {
     ]
   },
   resolve: {
-    extensions: ['.js', '.spec.js']
+    extensions: ['.js', '.json', '.ts', '.tsx']
   }
 };
 
