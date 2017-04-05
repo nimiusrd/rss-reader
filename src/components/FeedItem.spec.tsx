@@ -18,8 +18,8 @@ describe('<FeedItem />', () => {
     const wrapper = shallow(elem);
 
     assert(wrapper.contains(<header>{'huga'}</header>));
-    assert(wrapper.contains(<p>{'hoge'}</p>));
-    assert(wrapper.contains(<a>{'example.com'}</a>));
+    assert(wrapper.contains(<details>{'hoge'}</details>));
+    assert(wrapper.contains(<a href={'example.com'}>{'example.com'}</a>));
 
   });
 
@@ -29,8 +29,8 @@ describe('<FeedItem />', () => {
     const wrapper = shallow(elem);
 
     assert(wrapper.contains(<header>{'no title'}</header>));
-    assert(wrapper.contains(<p>{'no description'}</p>));
-    assert(wrapper.contains(<a>{'no link'}</a>));
+    assert(wrapper.contains(<details>{'no description'}</details>));
+    assert(wrapper.contains(<a href="">{'no link'}</a>));
 
   });
 
@@ -46,8 +46,8 @@ describe('<FeedItem />', () => {
     const wrapper = shallow(elem);
 
     assert(wrapper.contains(<header>{'no title'}</header>));
-    assert(wrapper.contains(<p>{'no description'}</p>));
-    assert(wrapper.contains(<a>{'no link'}</a>));
+    assert(wrapper.contains(<details>{'no description'}</details>));
+    assert(wrapper.contains(<a href="">{'no link'}</a>));
 
   });
 
