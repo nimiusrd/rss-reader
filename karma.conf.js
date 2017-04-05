@@ -51,6 +51,8 @@ const webpackConfig = {
   }
 };
 
+const browsers = process.env.TRAVIS ? ['PhantomJS'] : ['Chromium', 'PhantomJS', 'Firefox', 'Safari', 'Chrome']
+
 module.exports = config => {
 
   config.set({
@@ -68,7 +70,7 @@ module.exports = config => {
     },
     reporters: ['mocha'],
     logLevel : config.LOG_INFO,
-    browsers : ['Chromium', 'PhantomJS', 'Firefox', 'Safari', 'Chrome'],
+    browsers : browsers,
     singleRun: false
   });
 
