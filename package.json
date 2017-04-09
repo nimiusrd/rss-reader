@@ -1,7 +1,6 @@
 {
   "name": "rss-reader",
   "version": "0.0.1",
-  "main": "index.js",
   "repository": "git@github.com:nimiusrd/react-sample.git",
   "author": "Yudai Udagawa <nimius.rd@gmail.com>",
   "license": "MIT",
@@ -10,7 +9,8 @@
     "start": "webpack -w -d --config webpack.config.dev.js",
     "build": "webpack -p --config webpack.config.prod.js",
     "test": "karma start --single-run",
-    "test:watch": "karma start"
+    "test:watch": "karma start",
+    "tcm": "tcm src"
   },
   "devDependencies": {
     "awesome-typescript-loader": "^3.1.2",
@@ -43,6 +43,7 @@
     "source-map-loader": "^0.2.0",
     "style-loader": "^0.13.1",
     "stylelint": "^7.6.0",
+    "typed-css-modules": "^0.2.0",
     "typescript": "^2.2.2",
     "typescript-eslint-parser": "^2.0.0",
     "webpack": "^2.2.1",
