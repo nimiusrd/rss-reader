@@ -177,6 +177,7 @@ module.exports = {
     'no-trailing-spaces'         : ['error', {
       'skipBlankLines': false
     }],
+    'no-undef': 0,
     'no-undef-init'               : 'error',
     'no-undefined'                : 'error',
     'no-underscore-dangle'        : 'error',
@@ -216,7 +217,7 @@ module.exports = {
     }],
     'operator-assignment'  : ['error', 'always'],
     'operator-linebreak'   : ['error', 'after'],
-    'padded-blocks'        : 'error',
+    'padded-blocks'        : ["error", { "blocks": "never" }],
     'prefer-arrow-callback': ['error', {
       'allowNamedFunctions': true
     }],
@@ -231,13 +232,16 @@ module.exports = {
       'allowTemplateLiterals': true
     }],
     'radix'                       : 'error',
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-    'react/jsx-indent'            : [2, 2],
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".ts", "tsx"] }],
+    'react/jsx-indent'            : [0, 2],
     'react/jsx-indent-props'      : [2, 2],
     'react/jsx-max-props-per-line': [2, {
       maximum: 1
     }],
     'react/jsx-no-literals': 2,
+    'jsx-wrap-multilines': 0,
+    'react/no-set-state': 0,
+    'react/no-unescaped-entities': 0,
     'require-await'        : 'error',
     'rest-spread-spacing'  : ['error', 'always'],
     'semi-spacing'         : 'error',
