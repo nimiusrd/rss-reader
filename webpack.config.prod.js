@@ -27,8 +27,8 @@ module.exports = {
       {
         exclude: /node_modules/,
         loader : ExtractTextPlugin.extract({
-          'fallback-loader': 'style-loader',
-          'loader'         : 'css-loader?modules&importLoaders=1&localIdentName=[local]___[hash:base64:5]!postcss-loader'
+          fallback : 'style-loader',
+          use      : 'css-loader?modules&importLoaders=1&localIdentName=[local]___[hash:base64:5]!postcss-loader'
         }),
         test: /\.css$/
       }
