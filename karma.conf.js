@@ -51,7 +51,7 @@ const webpackConfig = {
   }
 };
 
-const browsers = process.env.TRAVIS ? ['PhantomJS'] : ['Chromium', 'PhantomJS', 'Firefox', 'Safari', 'Chrome']
+const browsers = process.env.TRAVIS ? ['PhantomJS'] : ['Chromium', 'Firefox', 'Safari', 'Chrome']
 
 module.exports = config => {
 
