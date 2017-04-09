@@ -3,12 +3,10 @@ import * as React from 'react';
 import * as assert from 'power-assert';
 import {mount, render, shallow} from 'enzyme';
 
-import {FeedItem} from './FeedItem';
+import {FeedItem, FeedItemProps} from './FeedItem';
 
 describe('<FeedItem />', () => {
-
   it('mount correctly', () => {
-
     const elem =
       <FeedItem
         description="hoge"
@@ -20,35 +18,28 @@ describe('<FeedItem />', () => {
     assert(wrapper.contains(<header>{'huga'}</header>));
     assert(wrapper.contains(<details>{'hoge'}</details>));
     assert(wrapper.contains(<a href={'example.com'}>{'example.com'}</a>));
-
   });
 
   it('no attribute', () => {
-
     const elem = <FeedItem />;
     const wrapper = shallow(elem);
 
     assert(wrapper.contains(<header>{'no title'}</header>));
     assert(wrapper.contains(<details>{'no description'}</details>));
     assert(wrapper.contains(<a href="">{'no link'}</a>));
-
   });
 
   it('empty attribute', () => {
-
     const elem =
       <FeedItem
         description=""
         link=""
         title=""
       />;
-
     const wrapper = shallow(elem);
 
     assert(wrapper.contains(<header>{'no title'}</header>));
     assert(wrapper.contains(<details>{'no description'}</details>));
     assert(wrapper.contains(<a href="">{'no link'}</a>));
-
   });
-
 });

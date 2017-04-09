@@ -1,9 +1,17 @@
 import * as React from 'react';
 import * as styles from './FeedItem.css';
 
-export const FeedItem = ({title, link, description}) =>
+export interface FeedItemProps {
+  title?: string;
+  link?: string;
+  description?: string;
+}
+
+const FeedItem = ({title, link, description}: FeedItemProps) =>
   <section className={styles.container}>
     <header>{title || 'no title'}</header>
     <details>{description || 'no description'}</details>
-    <a href={link || ""}>{link || 'no link'}</a>
+    <a href={link || ''}>{link || 'no link'}</a>
   </section>;
+
+export {FeedItem};
