@@ -1,12 +1,14 @@
 {
   "extends": ["tslint:all", "tslint-react"],
   "rules": {
+    "arrow-parens": [true, "ban-single-arg-parens"],
     "interface-name": [false],
-    "quotemark": [true, "single", "avoid-escape", "jsx-double"],
     "jsx-wrap-multiline": false,
     "member-access": [true, "no-public"],
-    "trailing-comma": [true, {"multiline": "never", "singleline": "never"}],
+    "quotemark": [true, "single", "avoid-escape", "jsx-double"],
     "semicolon": [true, "never"],
-    "arrow-parens": [true, "ban-single-arg-parens"]
+    "trailing-comma": [true, {"multiline": "never", "singleline": "never"}],
+    "typedef": [true, "call-signature", "member-variable-declaration", "parameter"],
+    "variable-name": [true, "ban-keywords", "check-format", "allow-pascal-case"]
   }
 }
