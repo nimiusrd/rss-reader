@@ -1,8 +1,8 @@
-import * as React from 'react';
-import {FeedItem, FeedItemProps} from './FeedItem';
+import * as React from 'react'
+import {FeedItem, FeedItemProps} from './FeedItem'
 
 export interface ContainerProps {
-  FeedItems?: FeedItemProps[];
+  FeedItems?: FeedItemProps[]
 }
 
 const Container = ({FeedItems}: ContainerProps) => {
@@ -14,12 +14,12 @@ const Container = ({FeedItems}: ContainerProps) => {
         title={item.title}
       />
     </li>
-  );
+  )
 
   return (
     <ul>
       {FeedList}
-    </ul>);
-};
+    </ul>)
+}
 
 export {Container}

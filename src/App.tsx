@@ -1,28 +1,27 @@
-import * as React from 'react';
-import {FeedItemProps} from './components/FeedItem';
-import {Container, ContainerProps} from './components/Container';
+import * as React from 'react'
+import {Container, ContainerProps} from './components/Container'
+import {FeedItemProps} from './components/FeedItem'
 
-interface Props {}
 interface State {
-  feedItems: FeedItemProps[] | undefined[];
+  feedItems: FeedItemProps[] | undefined[]
 }
 
-interface myResponse<T> extends Response, Array<T> {
-  feedItems: T[];
+interface MyResponse<T> extends Response, Array<T> {
+  feedItems: T[]
 }
 
-export default class App extends React.Component<Props, State> {
-  constructor(props: Props) {
-    super(props);
+export default class App extends React.Component<{}, State> {
+  constructor(props) {
+    super(props)
     this.state = {
       feedItems: []
-    };
-    this.handleFeed = this.handleFeed.bind(this);
+    }
+    this.handleFeed = this.handleFeed.bind(this)
   }
 
-  fetchFeed(): Promise<myResponse<FeedItemProps | undefined>> {
+  fetchFeed(): Promise<MyResponse<FeedItemProps | undefined>> {
     return fetch('http://localhost:8080/feed')
-      .then(res => res.json());
+      .then(res => res.json())
   }
 
   handleFeed() {
@@ -30,8 +29,8 @@ export default class App extends React.Component<Props, State> {
       .then(json => {
         this.setState({
           feedItems: json
-        });
-      });
+        })
+      })
   }
 
   render() {
@@ -40,6 +39,6 @@ export default class App extends React.Component<Props, State> {
         <button onClick={this.handleFeed}>{'Click me!'}</button>
         <Container FeedItems={this.state.feedItems} />
       </div>
-    );
+    )
   }
 }

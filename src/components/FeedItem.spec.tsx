@@ -1,9 +1,9 @@
 /* eslint-env mocha */
-import * as React from 'react';
-import * as assert from 'power-assert';
-import {mount, render, shallow} from 'enzyme';
+import * as React from 'react'
+import * as assert from 'power-assert'
+import {mount, render, shallow} from 'enzyme'
 
-import {FeedItem, FeedItemProps} from './FeedItem';
+import {FeedItem, FeedItemProps} from './FeedItem'
 
 describe('<FeedItem />', () => {
   it('mount correctly', () => {
@@ -12,22 +12,22 @@ describe('<FeedItem />', () => {
         description="hoge"
         link="example.com"
         title="huga"
-      />;
-    const wrapper = shallow(elem);
+      />
+    const wrapper = shallow(elem)
 
-    assert(wrapper.contains(<header>{'huga'}</header>));
-    assert(wrapper.contains(<details>{'hoge'}</details>));
-    assert(wrapper.contains(<a href={'example.com'}>{'example.com'}</a>));
-  });
+    assert(wrapper.contains(<header>{'huga'}</header>))
+    assert(wrapper.contains(<details>{'hoge'}</details>))
+    assert(wrapper.contains(<a href={'example.com'}>{'example.com'}</a>))
+  })
 
   it('no attribute', () => {
-    const elem = <FeedItem />;
-    const wrapper = shallow(elem);
+    const elem = <FeedItem />
+    const wrapper = shallow(elem)
 
-    assert(wrapper.contains(<header>{'no title'}</header>));
-    assert(wrapper.contains(<details>{'no description'}</details>));
-    assert(wrapper.contains(<a href="">{'no link'}</a>));
-  });
+    assert(wrapper.contains(<header>{'no title'}</header>))
+    assert(wrapper.contains(<details>{'no description'}</details>))
+    assert(wrapper.contains(<a href="">{'no link'}</a>))
+  })
 
   it('empty attribute', () => {
     const elem =
@@ -35,11 +35,11 @@ describe('<FeedItem />', () => {
         description=""
         link=""
         title=""
-      />;
-    const wrapper = shallow(elem);
+      />
+    const wrapper = shallow(elem)
 
-    assert(wrapper.contains(<header>{'no title'}</header>));
-    assert(wrapper.contains(<details>{'no description'}</details>));
-    assert(wrapper.contains(<a href="">{'no link'}</a>));
-  });
-});
+    assert(wrapper.contains(<header>{'no title'}</header>))
+    assert(wrapper.contains(<details>{'no description'}</details>))
+    assert(wrapper.contains(<a href="">{'no link'}</a>))
+  })
+})
