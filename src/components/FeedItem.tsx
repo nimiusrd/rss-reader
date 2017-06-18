@@ -7,7 +7,7 @@ export interface FeedItemProps {
   title?: string
 }
 
-const FeedItem = ({title, link, description}: FeedItemProps) =>
+const FeedItem = ({title, link, description}: FeedItemProps): JSX.Element =>
   <section className={styles.container}>
     <header>{title || 'no title'}</header>
     <details>{description || 'no description'}</details>
