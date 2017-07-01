@@ -2,7 +2,7 @@ import * as React from 'react'
 import {FeedItem, FeedItemProps} from './FeedItem'
 
 export interface ContainerProps {
-  FeedItems?: FeedItemProps[]
+  FeedItems: FeedItemProps[]
 }
 
 const Container = ({FeedItems}: ContainerProps): JSX.Element => {

@@ -8,8 +8,8 @@ interface State {
 
 interface Props {}
 
-const fetchFeed: () => Promise<FeedItemProps[]> = () =>
-  fetch('http://localhost:8080/feed')
+const fetchFeed = (url: string): Promise<FeedItemProps[]> =>
+  fetch(url)
     .then(res => res.json())
 
 class App extends React.Component<Props, State> {
@@ -22,7 +22,7 @@ class App extends React.Component<Props, State> {
   }
 
   handleFeed(): void {
-    fetchFeed()
+    fetchFeed('http://localhost:8080/feed')
       .then(json => {
         this.setState({
           feedItems: json
@@ -34,7 +34,7 @@ class App extends React.Component<Props, State> {
     return (
       <div>
         <button onClick={this.handleFeed}>{'Click me!'}</button>
-        <Container FeedItems={this.state.feedItems} />
+        <Container FeedItems={this.state.feedItems || []} />
       </div>
     )
   }
