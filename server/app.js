@@ -34,6 +34,9 @@ app.get('/feed', (req, res) => {
             })
             res.send(result)
         })
+        .catch(e => {
+          console.log(e)
+        })
 })
 
 app.listen(8080)
