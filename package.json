@@ -6,16 +6,15 @@
   "license": "MIT",
   "scripts": {
     "prestart": "rimraf dist/assets/",
-    "start": "webpack -w -d --config webpack.config.dev.js",
+    "start": "yarn build:watch & firebase serve",
     "build": "webpack -p --config webpack.config.prod.js",
+    "build:watch": "webpack -w -d --config webpack.config.dev.js",
     "test": "karma start --single-run",
     "test:watch": "karma start",
     "tcm": "tcm src"
   },
   "devDependencies": {
     "awesome-typescript-loader": "^3.1.2",
-    "browser-sync": "^2.18.2",
-    "browser-sync-webpack-plugin": "^1.1.3",
     "css-loader": "^0.26.1",
     "cssnano": "^3.8.2",
     "enzyme": "^2.6.0",

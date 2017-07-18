@@ -1,6 +1,4 @@
 const path = require('path');
-const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
-const browserSyncConfig = require('./bs-config.js');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 process.env.NODE_ENV = 'development';
@@ -43,7 +41,6 @@ module.exports = {
     path    : path.join(__dirname, 'dist', 'assets')
   },
   plugins: [
-    new BrowserSyncPlugin(browserSyncConfig),
     new ExtractTextPlugin({
       allChunks: true,
       filename : '[name].css'
