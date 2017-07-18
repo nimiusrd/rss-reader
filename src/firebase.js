@@ -1,4 +1,5 @@
-import {initializeApp, auth} from 'firebase'
+import * as firebase from 'firebase/app'
+import 'firebase/auth'
 
 const config = {
   apiKey: 'AIzaSyC5WATfwbgz3CMO9w8HeJdotr_HZwyZLQM',
@@ -9,11 +10,11 @@ const config = {
   storageBucket: 'rss-reader-c26fd.appspot.com'
 }
 
-initializeApp(config)
+firebase.initializeApp(config)
 
-const provider = new auth.TwitterAuthProvider()
-auth().signInWithRedirect(provider)
-auth().getRedirectResult().then(result => {
+const provider = new firebase.auth.TwitterAuthProvider()
+firebase.auth().signInWithRedirect(provider)
+firebase.auth().getRedirectResult().then(result => {
   if (result.credential) {
     const token = result.credential.accessToken
     const secret = result.credential.secret
