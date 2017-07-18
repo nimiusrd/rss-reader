@@ -1,5 +1,12 @@
 import * as firebase from 'firebase/app'
+// tslint:disable-next-line:no-import-side-effect
 import 'firebase/auth'
+
+interface MyError extends firebase.auth.Error, Error {
+  code: string
+  credential: string
+  email: string
+}
 
 const config = {
   apiKey: 'AIzaSyC5WATfwbgz3CMO9w8HeJdotr_HZwyZLQM',
@@ -20,7 +27,7 @@ firebase.auth().getRedirectResult().then(result => {
     const secret = result.credential.secret
   }
   const user = result.user
-}).catch(error => {
+}).catch((error: MyError) => {
   const errorCode = error.code
   const errorMessage = error.message
   const email = error.email
