@@ -2,7 +2,8 @@ import * as firebase from 'firebase/app'
 // tslint:disable-next-line:no-import-side-effect
 import 'firebase/auth'
 
-interface MyError extends firebase.auth.Error, Error {
+// Ref: https://firebase.google.com/docs/reference/js/firebase.auth.Error
+interface AuthError extends firebase.auth.Error, Error {
   code: string
   credential: string
   email: string
@@ -27,7 +28,7 @@ firebase.auth().getRedirectResult().then(result => {
     const secret = result.credential.secret
   }
   const user = result.user
-}).catch((error: MyError) => {
+}).catch((error: AuthError) => {
   const errorCode = error.code
   const errorMessage = error.message
   const email = error.email
