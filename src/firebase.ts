@@ -20,17 +20,30 @@ const config = {
 
 firebase.initializeApp(config)
 
-const provider = new firebase.auth.TwitterAuthProvider()
-firebase.auth().signInWithRedirect(provider)
-firebase.auth().getRedirectResult().then(result => {
-  if (result.credential) {
-    const token = result.credential.accessToken
-    const secret = result.credential.secret
+const AuthenticateWithTwitter = () => {
+    const provider = new firebase.auth.TwitterAuthProvider()
+    firebase.auth().signInWithRedirect(provider)
+    firebase.auth().getRedirectResult().then(result => {
+      if (result.credential) {
+        const token = result.credential.accessToken
+        const secret = result.credential.secret
+      }
+      const user = result.user
+    }).catch((error: AuthError) => {
+      const errorCode = error.code
+      const errorMessage = error.message
+      const email = error.email
+      const credential = error.credential
+    })
+}
+
+firebase.auth().onAuthStateChanged((user: object): void => {
+  if (user) {
+    console.log(user)
+  } else {
+    AuthenticateWithTwitter()
   }
-  const user = result.user
-}).catch((error: AuthError) => {
-  const errorCode = error.code
-  const errorMessage = error.message
-  const email = error.email
-  const credential = error.credential
 })
+
+const storage = firebase.storage()
+const storageRef = storage.ref()
