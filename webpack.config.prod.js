@@ -6,7 +6,8 @@ process.env.NODE_ENV = 'production';
 module.exports = {
   context: path.resolve(__dirname, 'src'),
   entry  : {
-    app: './main'
+    app: './main',
+    firebase: './firebase'
   },
   externals: {
     'react'    : 'React',

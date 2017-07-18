@@ -8,7 +8,8 @@ process.env.NODE_ENV = 'development';
 module.exports = {
   context: path.resolve(__dirname, 'src'),
   entry  : {
-    app: './main'
+    app: './main',
+    firebase: './firebase'
   },
   externals: {
     'react'    : 'React',
