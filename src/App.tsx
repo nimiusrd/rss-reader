@@ -22,7 +22,7 @@ class App extends React.Component<Props, State> {
   }
 
   handleFeed(): void {
-    fetchFeed('http://localhost:8080/feed')
+    fetchFeed('https://us-central1-rss-reader-c26fd.cloudfunctions.net/feed')
       .then(json => {
         this.setState({
           feedItems: json
