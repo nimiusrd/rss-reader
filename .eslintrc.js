@@ -239,7 +239,7 @@ module.exports = {
       maximum: 1
     }],
     'react/jsx-no-literals': 2,
-    'jsx-wrap-multilines': 0,
+    'react/jsx-wrap-multilines': 0,
     'react/no-set-state': 0,
     'react/no-unescaped-entities': 0,
     'require-await'        : 'error',
