@@ -1,9 +1,8 @@
 /* eslint-env mocha */
-import {mount, render, shallow} from 'enzyme'
-import * as assert from 'power-assert'
 import * as React from 'react'
-
+import * as assert from 'power-assert'
 import {FeedItem, FeedItemProps} from './FeedItem'
+import {mount, render, shallow} from 'enzyme'
 
 describe('<FeedItem />', () => {
   it('mount correctly', () => {

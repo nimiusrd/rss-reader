@@ -6,15 +6,16 @@ export interface ContainerProps {
 }
 
 const Container = ({FeedItems}: ContainerProps): JSX.Element => {
-  const FeedList: JSX.Element[] = FeedItems.map((item: FeedItemProps, index: number) =>
-    <li key={index}>
-      <FeedItem
-        description={item.description}
-        link={item.link}
-        title={item.title}
-      />
-    </li>
-  )
+  const FeedList: JSX.Element[] =
+    FeedItems.map((item: FeedItemProps, index: number) =>
+      <li key={index}>
+        <FeedItem
+          description={item.description}
+          link={item.link}
+          title={item.title}
+        />
+      </li>
+    )
 
   return (
     <ul>
