@@ -5,7 +5,11 @@ cache: yarn
 dist: trusty
 addons:
   chrome: stable
-before_deploy: "yarn build"
+before_deploy:
+  - "yarn build"
+  - cd functions
+  - yarn
+  - cd ..
 deploy:
   skip_cleanup: true
   provider: firebase
