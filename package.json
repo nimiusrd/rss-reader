@@ -11,7 +11,8 @@
     "build:watch": "webpack -w -d --config webpack.config.dev.js",
     "test": "karma start --single-run",
     "test:watch": "karma start",
-    "tcm": "tcm src"
+    "tcm": "tcm src",
+    "fix:eslint": "eslint --ext .ts,.tsx  --fix src/"
   },
   "devDependencies": {
     "awesome-typescript-loader": "^3.1.2",
