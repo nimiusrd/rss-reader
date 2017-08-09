@@ -13,7 +13,7 @@ module.exports = {
     'at-rule-empty-line-before': ['always', {
       except: [
         'blockless-after-same-name-blockless',
-        'blockless-group',
+        'blockless-after-blockless',
         'first-nested'
       ]
     }],
@@ -29,7 +29,6 @@ module.exports = {
     'block-closing-brace-space-after'      : 'always-single-line',
     'block-closing-brace-space-before'     : 'always-single-line',
     'block-no-empty'                       : true,
-    'block-no-single-line'                 : true,
     'block-opening-brace-newline-after'    : 'always-multi-line',
     'block-opening-brace-newline-before'   : 'never-single-line',
     'block-opening-brace-space-after'      : 'always-single-line',
@@ -38,16 +37,13 @@ module.exports = {
     'color-hex-length'                     : 'short',
     'color-no-invalid-hex'                 : true,
     'comment-empty-line-before'            : ['always', {
-      'ignore': ['stylelint-commands', 'between-comments']
+      'ignore': ['stylelint-commands', 'after-comment']
     }],
     'comment-no-empty'                                  : true,
     'comment-whitespace-inside'                         : 'always',
     'custom-property-empty-line-before'                 : 'never',
-    'custom-property-no-outside-root'                   : true,
     'declaration-block-no-duplicate-properties'         : true,
-    'declaration-block-no-ignored-properties'           : true,
     'declaration-block-no-redundant-longhand-properties': true,
-    'declaration-block-properties-order'                : 'alphabetical',
     'declaration-block-semicolon-newline-after'         : 'always',
     'declaration-block-semicolon-newline-before'        : 'never-multi-line',
     'declaration-block-semicolon-space-after'           : 'always-single-line',
@@ -88,7 +84,6 @@ module.exports = {
     'media-feature-name-case'                  : 'lower',
     'media-feature-name-no-unknown'            : true,
     'media-feature-name-no-vendor-prefix'      : true,
-    'media-feature-no-missing-punctuation'     : true,
     'media-feature-parentheses-space-inside'   : 'always',
     'media-feature-range-operator-space-after' : 'always',
     'media-feature-range-operator-space-before': 'always',
@@ -96,7 +91,6 @@ module.exports = {
     'media-query-list-comma-newline-before'    : commaNewLine.before,
     'media-query-list-comma-space-after'       : commaSpace.after,
     'media-query-list-comma-space-before'      : commaSpace.before,
-    'no-browser-hacks'                         : true,
     'no-descending-specificity'                : true,
     'no-duplicate-selectors'                   : true,
     'no-empty-source'                          : true,
@@ -113,13 +107,8 @@ module.exports = {
     'property-case'                            : 'lower',
     'property-no-unknown'                      : true,
     'property-no-vendor-prefix'                : true,
-    'root-no-standard-properties'              : true,
-    'rule-nested-empty-line-before'            : ['always', {
-      'except': ['first-nested'],
-      'ignore': ['after-comment']
-    }],
-    'rule-non-nested-empty-line-before': ['always', {
-      'except': ['after-single-line-comment'],
+    'rule-empty-line-before'                   : ['always', {
+      'except': ['first-nested', 'after-single-line-comment'],
       'ignore': ['after-comment']
     }],
     'selector-attribute-brackets-space-inside'      : 'always',
@@ -134,11 +123,9 @@ module.exports = {
     'selector-list-comma-space-after'               : commaSpace.after,
     'selector-list-comma-space-before'              : commaSpace.before,
     'selector-max-empty-lines'                      : 0,
-    'selector-no-attribute'                         : true,
-    'selector-no-empty'                             : true,
-    'selector-no-id'                                : true,
+    'selector-max-id'                               : 1,
     'selector-no-qualifying-type'                   : true,
-    'selector-no-universal'                         : true,
+    'selector-max-universal'                        : [0, 1],
     'selector-no-vendor-prefix'                     : true,
     'selector-pseudo-class-case'                    : 'lower',
     'selector-pseudo-class-no-unknown'              : true,
@@ -149,8 +136,6 @@ module.exports = {
     'shorthand-property-no-redundant-values'        : true,
     'string-no-newline'                             : true,
     'string-quotes'                                 : 'single',
-    'stylelint-disable-reason'                      : 'always-after',
-    'time-no-imperceptible'                         : true,
     'unit-case'                                     : 'lower',
     'unit-no-unknown'                               : true,
     'unit-whitelist'                                : [
