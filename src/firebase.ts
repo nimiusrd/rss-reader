@@ -39,7 +39,7 @@ const authenticateWithTwitter = () => {
     })
 }
 
-firebase.auth().onAuthStateChanged((user: object): void => {
+firebase.auth().onAuthStateChanged((user: any) => {
   if (user) {
     console.log(user)
   } else {

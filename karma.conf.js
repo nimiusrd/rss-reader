@@ -8,9 +8,10 @@ const webpackConfig = {
   },
   externals: {
     'cheerio'                       : 'window',
-    'react/addons'                  : 'react',
-    'react/lib/ExecutionEnvironment': 'react',
-    'react/lib/ReactContext'        : 'react'
+    'react/addons'                  : true,
+    'react/lib/ExecutionEnvironment': true,
+    'react/lib/ReactContext'        : true,
+    'react-addons-test-utils': 'react-dom'
   },
   module: {
     rules: [
