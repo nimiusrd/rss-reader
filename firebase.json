@@ -6,8 +6,12 @@
     "public": "dist",
     "rewrites": [
       {
-        "source": "**",
+        "source": "/",
         "destination": "/index.html"
+      },
+      {
+        "source": "/feed",
+        "function": "feed"
       }
     ]
   }

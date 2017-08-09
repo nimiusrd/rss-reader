@@ -9,6 +9,7 @@
     "start": "yarn build:watch & firebase serve --only functions,hosting",
     "build": "webpack -p --config webpack.config.prod.js",
     "build:watch": "webpack -w -d --config webpack.config.dev.js",
+    "deploy": "yarn build && firebase deploy",
     "test": "karma start --single-run",
     "test:watch": "karma start",
     "tcm": "tcm src",

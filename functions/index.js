@@ -26,6 +26,6 @@ exports.feed = functions.https.onRequest((req, res) => {
       res.send(result)
     })
     .catch(e => {
-      console.log(e)
+      res.send(e)
     })
 })
