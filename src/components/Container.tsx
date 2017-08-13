@@ -1,5 +1,6 @@
 import * as React from 'react'
 import {FeedItem, FeedItemProps} from './FeedItem'
+import {PreferenceButton} from './PreferenceButton'
 
 export interface ContainerProps {
   FeedItems: FeedItemProps[]
@@ -14,6 +15,7 @@ const Container = ({FeedItems}: ContainerProps): JSX.Element => {
           link={item.link}
           title={item.title}
         />
+        <PreferenceButton id={item.link} />
       </li>
     )
 
