@@ -11,7 +11,6 @@ const option = {
 }
 
 exports.feeds = functions.https.onRequest((req, res) => {
-  res.set({"Access-Control-Allow-Origin": "*"})
   const feedid = encodeURIComponent('feed/http://html5experts.jp/feed/')
   fetch(`https://cloud.feedly.com/v3/streams/${feedid}/contents`, option)
     .then(res => res.json())
