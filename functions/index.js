@@ -29,3 +29,20 @@ exports.feeds = functions.https.onRequest((req, res) => {
     })
 })
 
+exports.subscriptions = functions.https.onRequest((req, res) => {
+  fetch(`https://cloud.feedly.com/v3/subscriptions`, option)
+    .then(res => res.json())
+    .then(json => {
+      const result = json.map(item => {
+        return {
+          website: item.website,
+          id: item.id,
+          title: item.title
+        }
+      })
+      res.send(result)
+    })
+    .catch(e => {
+      res.send(e)
+    })
+})

@@ -12,6 +12,10 @@
       {
         "source": "/feeds",
         "function": "feeds"
+      },
+      {
+        "source": "/subscriptions",
+        "function": "subscriptions"
       }
     ]
   }
