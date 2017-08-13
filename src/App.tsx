@@ -22,7 +22,7 @@ class App extends React.Component<Props, State> {
   }
 
   handleFeed(): void {
-    fetchFeed('/feed')
+    fetchFeed('/feeds')
       .then(json => {
         this.setState({
           feedItems: json
