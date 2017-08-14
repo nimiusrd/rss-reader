@@ -11,8 +11,9 @@ const option = {
 }
 
 exports.feeds = functions.https.onRequest((req, res) => {
-  const feedid = encodeURIComponent('feed/http://html5experts.jp/feed/')
-  fetch(`https://cloud.feedly.com/v3/streams/${feedid}/contents`, option)
+  const feedId = 'feed/http://html5experts.jp/feed/'
+  const encodedFeedId = encodeURIComponent(feedId)
+  fetch(`https://cloud.feedly.com/v3/streams/${encodedFeedId}/contents`, option)
     .then(res => res.json())
     .then(json => {
       const result = json.items.map(item => {
@@ -22,7 +23,10 @@ exports.feeds = functions.https.onRequest((req, res) => {
           title: item.title
         }
       })
-      res.send(result)
+      res.send({
+        feedId: feedId,
+        items: result
+      })
     })
     .catch(e => {
       res.send(e)

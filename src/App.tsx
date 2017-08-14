@@ -3,14 +3,11 @@ import {Container, ContainerProps} from './components/Container'
 import {FeedItemProps} from './components/FeedItem'
 
 interface State {
+  feedId?: string
   feedItems?: FeedItemProps[]
 }
 
 interface Props {}
-
-const fetchFeed = (url: string): Promise<FeedItemProps[]> =>
-  fetch(url)
-    .then(res => res.json())
 
 class App extends React.Component<Props, State> {
   constructor(props: Props) {
@@ -22,10 +19,12 @@ class App extends React.Component<Props, State> {
   }
 
   handleFeed(): void {
-    fetchFeed('/feeds')
+    fetch('/feeds')
+      .then(res => res.json())
       .then(json => {
         this.setState({
-          feedItems: json
+          feedId   : json.feedId,
+          feedItems: json.items
         })
       })
   }
@@ -34,7 +33,10 @@ class App extends React.Component<Props, State> {
     return (
       <div>
         <button onClick={this.handleFeed}>{'Click me!'}</button>
-        <Container FeedItems={this.state.feedItems || []} />
+        <Container
+          feedId={this.state.feedId || ''}
+          feedItems={this.state.feedItems || []}
+        />
       </div>
     )
   }

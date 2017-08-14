@@ -47,5 +47,10 @@ firebase.auth().onAuthStateChanged((user: any) => {
   }
 })
 
-const storage = firebase.storage()
-const storageRef = storage.ref()
+const writePreference = (userId, feedId, itemId, preference) => {
+  firebase.database().ref(`preferences/${userId}/${feedId}/${itemId}`).set({
+    preference: preference
+  })
+}
+
+export {firebase, writePreference}
