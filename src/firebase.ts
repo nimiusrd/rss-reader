@@ -1,4 +1,5 @@
 import 'firebase/auth'
+import 'firebase/database'
 import * as firebase from 'firebase/app'
 
 // Ref: https://firebase.google.com/docs/reference/js/firebase.auth.Error
@@ -53,4 +54,4 @@ const writePreference = (userId: string, feedId: string, itemId: string, prefere
   })
 }
 
-export {firebase, writePreference}
+export {writePreference}
