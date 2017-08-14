@@ -1,6 +1,7 @@
 const functions = require('firebase-functions');
 const fetch = require('node-fetch')
 const fs = require('fs')
+const uuid = require('uuid/v5');
 
 const option = {
     method: 'GET',
@@ -20,11 +21,12 @@ exports.feeds = functions.https.onRequest((req, res) => {
         return {
           link: item.alternate[0].href,
           description: item.content.content,
-          title: item.title
+          title: item.title,
+          itemId: uuid(item.alternate[0].href, uuid.URL)
         }
       })
       res.send({
-        feedId: feedId,
+        feedId: uuid(feedId, uuid.URL),
         items: result
       })
     })
