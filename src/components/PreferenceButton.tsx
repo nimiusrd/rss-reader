@@ -1,4 +1,5 @@
 import * as React from 'react'
+import {writePreference} from '../firebase'
 
 const PreferenceButton = ({feedId, itemId}: any) => {
   const handlePreference = (event: any) => {

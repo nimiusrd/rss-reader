@@ -15,7 +15,12 @@ describe('<Container />', () => {
       }
     ]
 
-    const wrapper = mount(<Container feedItems={feedItems} />)
+    const wrapper = mount(
+      <Container
+        feedId={'hoge'}
+        feedItems={feedItems}
+      />
+    )
 
     assert(wrapper.contains(<header>{'huga'}</header>))
     assert(wrapper.contains(<details>{'hoge'}</details>))

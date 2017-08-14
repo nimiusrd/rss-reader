@@ -47,9 +47,9 @@ firebase.auth().onAuthStateChanged((user: any) => {
   }
 })
 
-const writePreference = (userId, feedId, itemId, preference) => {
+const writePreference = (userId: string, feedId: string, itemId: string, preference: string) => {
   firebase.database().ref(`preferences/${userId}/${feedId}/${itemId}`).set({
-    preference: preference
+    preference
   })
 }
 
