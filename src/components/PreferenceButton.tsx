@@ -3,7 +3,12 @@ import {writePreference} from '../firebase'
 
 const PreferenceButton = ({feedId, itemId}: any) => {
   const handlePreference = (event: any) => {
-    writePreference('hoge', encodeURIComponent(feedId).replace('.', ''), encodeURIComponent(itemId).replace('.', ''), event.target.value)
+    writePreference({
+      userId    : 'hoge',
+      feedId,
+      itemId,
+      preference: event.target.value
+    })
   }
 
   return (

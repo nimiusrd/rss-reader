@@ -5,6 +5,7 @@ export interface FeedItemProps {
   description?: string
   link?: string
   title?: string
+  itemId?: string
 }
 
 const FeedItem = ({title, link, description}: FeedItemProps): JSX.Element =>

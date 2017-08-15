@@ -48,10 +48,74 @@ firebase.auth().onAuthStateChanged((user: any) => {
   }
 })
 
-const writePreference = (userId: string, feedId: string, itemId: string, preference: string) => {
-  firebase.database().ref(`preferences/${userId}/${feedId}/${itemId}`).set({
-    preference
-  })
+interface writePreferenceParams {
+  userId: string,
+  feedId: string,
+  itemId: string,
+  preference: string
 }
 
-export {writePreference}
+const writePreference = ({userId, feedId, itemId, preference}: writePreferenceParams): void => {
+  firebase.database().ref(`preferences/${userId}/${feedId}/${itemId}`)
+    .update({
+      'value': preference,
+      userId,
+      feedId,
+      itemId
+    })
+}
+
+interface writeFeedParams {
+  userId: string,
+  feedId: string,
+  title: string,
+  url: string
+}
+
+const writeFeed = ({userId, feedId, title, url}: writeFeedParams): void => {
+  firebase.database().ref(`users/${userId}/feeds`)
+    .update({
+      [feedId]: true
+    })
+  firebase.database().ref(`feeds/${feedId}`)
+    .update({
+      title,
+      url,
+      users: {
+        [userId]: true
+      }
+    })
+}
+
+interface writeItemParams {
+  userId: string,
+  feedId: string,
+  itemId: string,
+  title: string,
+  link: string,
+  description: string
+}
+
+const writeItem = ({userId, feedId, itemId, title, link, description}: writeItemParams) => {
+  firebase.database().ref(`items/${feedId}/${itemId}`)
+    .update({
+      title,
+      link,
+      description,
+      feedId,
+      'users': {
+        [userId]: true
+      }
+    })
+
+  firebase.database().ref(`feeds/${feedId}/items`)
+    .update({
+      [userId]: true
+    })
+}
+
+export {
+  writePreference,
+  writeFeed,
+  writeItem
+}
